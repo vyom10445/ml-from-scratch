@@ -18,3 +18,11 @@ y_train = y[:split_index]  #take rows from {split_index} till end
 
 x_test = x[split_index:]
 y_test = y[split_index:]
+
+n_features = x_train.shape[1]
+weights = np.zeros(n_features) #initialise weights to no. of train features
+bias=0
+
+
+def sigmoid(z):
+    return (1/1+ np.exp(-z))

@@ -8,7 +8,7 @@ x=df.drop("target",axis=1).values
 y=df["target"].values
 
 #feature scaling
-x = x - x.mean(axis=0)/x.std(axis=0)
+x = (x - x.mean(axis=0))/x.std(axis=0)
 
 #train test split
 split_index = int(0.8 * len(x))
@@ -25,7 +25,7 @@ bias=0
 
 
 def sigmoid(z):
-    return (1/1+ np.exp(-z))
+    return 1/(1+ np.exp(-z))
 
 
 learning_rate = 0.01
@@ -48,9 +48,7 @@ for epoch in range(epochs):
     weights = weights - learning_rate * dw
     bias = bias - learning_rate * db
 
-    # epoch print
-    if epoch % 100 == 0:
-        print(f"Epoch {epoch}")
+
 
 
 #prediction

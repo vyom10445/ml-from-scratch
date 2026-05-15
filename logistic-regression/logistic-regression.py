@@ -26,3 +26,28 @@ bias=0
 
 def sigmoid(z):
     return (1/1+ np.exp(-z))
+
+
+learning_rate = 0.01
+epochs = 1000
+
+n = len(x_train)
+
+for epoch in range(epochs):
+    #prediction
+    z = np.dot(x_train,weights)+ bias
+
+    #apply sigmoid on pred
+    y_pred= sigmoid(z)
+    
+    #gradients
+    dw = (1/n) * np.dot(x_train.T, (y_pred - y_train))
+    db = (1/n) * np.sum(y_pred - y_train)
+
+    #update parameters
+    weights = weights - learning_rate * dw
+    bias = bias - learning_rate * db
+
+    # epoch print
+    if epoch % 100 == 0:
+        print(f"Epoch {epoch}")

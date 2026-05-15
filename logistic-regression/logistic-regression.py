@@ -51,3 +51,22 @@ for epoch in range(epochs):
     # epoch print
     if epoch % 100 == 0:
         print(f"Epoch {epoch}")
+
+
+#prediction
+z=np.dot(x_test,weights)+bias
+predictions = sigmoid(z)
+predicted_classes = []
+
+for i in predictions:
+
+    if i > 0.5:
+        predicted_classes.append(1)
+
+    else:
+        predicted_classes.append(0)
+
+#accuracy
+accuracy = np.mean(predicted_classes == y_test)
+
+print("Accuracy:", accuracy)

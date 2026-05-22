@@ -21,3 +21,17 @@ layer1.forward(X)
 #print(layer1.output)
 layer2.forward(layer1.output)
 print(layer2.output)
+
+class Activation_ReLU:
+    def forward(self, inputs):
+        self.output = np.maximum(0, inputs)
+
+
+layer1 = Layer_Dense(2,5)
+activation1 = Activation_ReLU()
+
+layer1.forward(X)
+
+#print(layer1.output)
+activation1.forward(layer1.output)
+print(activation1.output)

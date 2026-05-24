@@ -1,4 +1,5 @@
 import numpy as np
+import math
 
 np.random.seed(0)
 
@@ -43,3 +44,17 @@ dense2.forward(activation1.output)
 activation2.forward(dense2.output)
 
 print(activation2.output[:5])
+
+
+
+softmax_output = [0.7, 0.1, 0.2]
+target_output = [1, 0, 0]
+
+loss = -(math.log(softmax_output[0]) * target_output[0] +
+         math.log(softmax_output[1]) * target_output[1] +
+         math.log(softmax_output[2]) * target_output[2])
+
+print(loss)
+
+print(-math.log(0.7))
+print(-math.log(0.5))
